@@ -1,5 +1,4 @@
 # RESTful JSON API
----
 
 *Coded in Go*
 
