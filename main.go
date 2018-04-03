@@ -6,8 +6,20 @@ import (
 	"log"
 	"net/http"
 
+	"time"
+
 	"github.com/gorilla/mux"
 )
+
+// Todo - define a Todo struct (Go's version of a class)
+type Todo struct {
+	Name      string
+	Completed bool
+	Due       time.Time
+}
+
+// Todos - cretes an array of Todos called Todo (check this, could be wrong)
+type Todos []Todo
 
 func main() {
 	// creates a new router
