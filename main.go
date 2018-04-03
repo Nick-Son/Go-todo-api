@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html"
 	"log"
@@ -11,14 +12,14 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// Todo - define a Todo struct (Go's version of a class)
+// Todo - define a type called Todo which is a struct(Go's version of a class)
 type Todo struct {
 	Name      string
 	Completed bool
 	Due       time.Time
 }
 
-// Todos - cretes an array of Todos called Todo (check this, could be wrong)
+// Todos - defined a Todos type that is an array of items of type Todo
 type Todos []Todo
 
 func main() {
@@ -41,7 +42,14 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 // TodoIndex handler
 func TodoIndex(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Todo Index")
+	// fmt.Fprintln(w, "Todo Index")
+	todos := Todos{
+		Todo{Name: "Create Github repo"},
+		Todo{Name: "Push code to Github"},
+	}
+
+	// serve todos up as a JSON response
+	json.NewEncoder(w).Encode(todos)
 }
 
 // TodoShow handler
