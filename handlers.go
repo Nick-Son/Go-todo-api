@@ -16,12 +16,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 // TodoIndex handler
 func TodoIndex(w http.ResponseWriter, r *http.Request) {
-	// fmt.Fprintln(w, "Todo Index")
-	todos := Todos{
-		Todo{Name: "Create Github repo"},
-		Todo{Name: "Push code to Github"},
-	}
-
 	// setting the conent type, telling the client to expect JSON
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	// setting the status code
