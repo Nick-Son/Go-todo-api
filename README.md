@@ -16,3 +16,11 @@ This will create a go script, which can be executed by running:
 ```bash
 ./*scriptname*
 ```
+
+## Adding todo's
+As there currently is no front end, to see if the ability to create todos is functional, we can send a post request with curl:
+```bash
+curl -H "Content-Type: application/json" -d '{"name":"New Todo"}' http://localhost:8080/todos
+```
+
+If you refresh the  `http://localhost:8080/todos` page, you will see the new todo entry. 
